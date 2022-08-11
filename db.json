@@ -171,6 +171,19 @@
       "email": "aldi@gmail.com",
       "password": "123456789",
       "id": 1
+    },
+    {
+      "email": "test@email.com",
+      "password": "password",
+      "id": 2
+    },
+    {
+      "email": "Tester@gmail.com",
+      "password": {
+        "requestId": "uUkTg4AO5G_3r_KoLMDnq",
+        "signal": {}
+      },
+      "id": 3
     }
   ]
 }

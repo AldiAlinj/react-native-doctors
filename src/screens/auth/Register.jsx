@@ -1,8 +1,9 @@
 import { View, Text, SafeAreaView, StatusBar, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux/es/exports';
 import { createUser } from '../../redux/doctorSlice';
+import axios from 'axios';
 
 const Register = () => {
 
@@ -12,12 +13,12 @@ const Register = () => {
     const [password, setPassword] = useState('')
 
 
-    const registerUser = () => {
+    const registerUser = async() => {
         dispatch(createUser(email, password))
-        navigation.navigate('Home')
     }
 
 
+    
 
     const navigateLogin = () => {
         navigation.navigate('Login')
