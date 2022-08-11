@@ -1,6 +1,10 @@
 import { View, Text, SafeAreaView, StatusBar, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux/es/exports';
+import {getState,  getUser, loginUser} from '../../redux/doctorSlice';
+
+
 
 
 
@@ -9,12 +13,25 @@ import React from 'react'
 const Login = () => {
 
 const navigation = useNavigation();
+const dispatch = useDispatch();
+const [formData, setFormData] = useState({
+  email: '',
+  password: ''
+})
+  const user = useSelector(getUser)
+  const login = () => {
+    dispatch(loginUser(formData))
+  }
 
 
     const navigateRegistration = () => {
         navigation.navigate('Register')
     }
 
+    useEffect(() => {
+     console.log(user);
+    }, [])
+    
 
     return (
         <View style={styles.container}>
@@ -26,7 +43,7 @@ const navigation = useNavigation();
               style={styles.TextInput}
               placeholder="Email."
               placeholderTextColor="#003f5c"
-            //   onChangeText={(email) => setEmail(email)}
+              onChangeText={(email) => setFormData({...formData, email: email})}
             />
           </View>
      
@@ -36,7 +53,7 @@ const navigation = useNavigation();
               placeholder="Password."
               placeholderTextColor="#003f5c"
               secureTextEntry={true}
-            //   onChangeText={(password) => setPassword(password)}
+              onChangeText={(password) => setFormData({...formData, password: password})}
             />
           </View>
      
@@ -44,7 +61,7 @@ const navigation = useNavigation();
             <Text style={styles.forgot_button}>Register</Text>
           </TouchableOpacity>
      
-          <TouchableOpacity style={styles.loginBtn}>
+          <TouchableOpacity style={styles.loginBtn} onPress={login}>
             <Text style={styles.loginText}>LOGIN</Text>
           </TouchableOpacity>
         </View>

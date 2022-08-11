@@ -168,22 +168,62 @@
   ],
   "users": [
     {
-      "email": "aldi@gmail.com",
-      "password": "123456789",
+      "email": "testing@testing.com",
+      "password": "$2a$10$6g77lMwwOpV1DvbW5RYhC.I4.UMnBR39.gmxeJ6n.FevbIHXI/I2e",
+      "age": 32,
       "id": 1
     },
     {
-      "email": "test@email.com",
-      "password": "password",
+      "email": "tester@testing.com",
+      "password": "$2a$10$X5j1UC2ZQcKnfMc5EoMk/urYuJn7dhWttKfggnvDUeDSKXtZY4BtW",
       "id": 2
     },
     {
-      "email": "Tester@gmail.com",
-      "password": {
-        "requestId": "uUkTg4AO5G_3r_KoLMDnq",
-        "signal": {}
-      },
+      "email": "tester3@testing.com",
+      "password": "$2a$10$puqU.O/l3N0hRwaaGLvRPusYgcy5WpbcxsXh6eBDS1Yo9NUU9OaVG",
       "id": 3
+    },
+    {
+      "email": "tester4@testing.com",
+      "password": "$2a$10$bVfKAKWvZs5Do6BAM5afFO5vVHNlbbKqzedv/u22SRjJPixqgJS6a",
+      "id": 4
+    },
+    {
+      "email": "tester5@testing.com",
+      "password": "$2a$10$weEK80Nt75Ei8GssGksnCOdvu27KWEZwQbjnzUCeC/GM3A6qzz9ge",
+      "id": 5
+    },
+    {
+      "email": "email@test.com",
+      "password": "$2a$10$OcwPMw1qbZqS/Dg6WTkDuugY9XXecJIaNy.0xi4uoRe1Z/vHNFPoy",
+      "age": 32,
+      "id": 6
+    },
+    {
+      "email": "aldi2@gmail.com",
+      "password": "$2a$10$ffmUSFZe1e1p0D1JkM117uPRg8oZvkiu0IoyBrxfdYDA6P0pSzF7S",
+      "id": 7
+    },
+    {
+      "email": "email@gmail.com",
+      "password": "$2a$10$YTMICp4tpOiPhhWc.JKc6ugW3NfP.XZHK8jZWH9ySjYnMz0cCb4Vu",
+      "pass": "",
+      "age": "21",
+      "id": 8
+    },
+    {
+      "email": "email2@gmail.com",
+      "password": "$2a$10$cM96n.AT/v8PfdNVKLzYpesxZptajpf4eyUh6tAaxUP8t4dByb3Fi",
+      "pass": "",
+      "age": "22",
+      "id": 9
+    },
+    {
+      "email": "aldialinj@gmail.com",
+      "password": "$2a$10$QA8OjLU.ns1Fp.O4.Az8b.0Qc/oEWmy9ncsWdJob49yzd8wvaCrcS",
+      "pass": "",
+      "age": "22",
+      "id": 10
     }
   ]
 }

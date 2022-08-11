@@ -9,12 +9,14 @@ const Register = () => {
 
     const navigation = useNavigation();
     const dispatch = useDispatch();
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-
+    const [formData, setFormData] = useState({
+      email: '',
+      pass: '',
+      age: ''
+    })
 
     const registerUser = async() => {
-        dispatch(createUser(email, password))
+        dispatch(createUser(formData))
     }
 
 
@@ -34,17 +36,25 @@ const Register = () => {
               style={styles.TextInput}
               placeholder="Email."
               placeholderTextColor="#003f5c"
-              onChangeText={(email) => setEmail(email)}
+              onChangeText={(email) => setFormData({...formData, email: email})}
             />
           </View>
      
           <View style={styles.inputView}>
             <TextInput
               style={styles.TextInput}
-              placeholder="Password."
+              placeholder="pass."
               placeholderTextColor="#003f5c"
               secureTextEntry={true}
-              onChangeText={(password) => setPassword(password)}
+              onChangeText={(password) => setFormData({...formData, password: password})}
+            />
+          </View>
+          <View style={styles.inputView}>
+            <TextInput
+              style={styles.TextInput}
+              placeholder="Age."
+              placeholderTextColor="#003f5c"
+              onChangeText={(age) => setFormData({...formData, age: age})}
             />
           </View>
      
