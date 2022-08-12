@@ -1,0 +1,8 @@
+//Initialize the project
+expo start
+
+//initialize the JSON Server
+npx json-server --port 8000 ./db.json --watch -m ./node_modules/json-server-auth
+
+//Upload the JSON Server online
+npx lt --port 8000 --subdomain application-mock-server

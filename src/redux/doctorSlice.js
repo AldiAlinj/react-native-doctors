@@ -49,7 +49,7 @@ export const fetchDoctors = createAsyncThunk(
 const initialState = {
     doctors: null,
     user: {},
-    token: 123,
+    token: null,
     loading: false,
     errors: null
 }

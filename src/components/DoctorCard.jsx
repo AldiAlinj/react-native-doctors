@@ -9,7 +9,7 @@ const DoctorCard = ({ item }) => {
     let starsAmount = [];
     for (let i = 0; i < stars; i++) {
       starsAmount.push(
-        <Ionicons name="star" color="yellow" height={10} width={10} />
+        <Ionicons name="star" color="yellow" height={10} width={10}  key={i} />
       );
     }
     return starsAmount;
