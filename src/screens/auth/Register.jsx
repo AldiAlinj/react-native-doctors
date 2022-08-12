@@ -1,7 +1,7 @@
 import { View, Text, SafeAreaView, StatusBar, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux/es/exports';
+import { useDispatch } from 'react-redux';
 import { createUser } from '../../redux/doctorSlice';
 import axios from 'axios';
 
@@ -36,14 +36,14 @@ const Register = () => {
               style={styles.TextInput}
               placeholder="Email."
               placeholderTextColor="#003f5c"
-              onChangeText={(email) => setFormData({...formData, email: email})}
+              onChangeText={(email) => setFormData({...formData, email: email.toLowerCase()})}
             />
           </View>
      
           <View style={styles.inputView}>
             <TextInput
               style={styles.TextInput}
-              placeholder="pass."
+              placeholder="Password."
               placeholderTextColor="#003f5c"
               secureTextEntry={true}
               onChangeText={(password) => setFormData({...formData, password: password})}

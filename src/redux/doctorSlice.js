@@ -7,7 +7,7 @@ export const createUser = createAsyncThunk(
     'doctors/createUser',
 
     async(formData) => {
-        
+        console.log(formData);
        const response = await axios.post(`https://application-mock-server.loca.lt/register`, 
        formData,
        {
@@ -15,8 +15,8 @@ export const createUser = createAsyncThunk(
             'Content-Type' : 'application/json'
            }
        })
-       .catch((err) => {console.log(err)})
-           return response.data
+       
+       return response.data
     }
 )
 
@@ -48,7 +48,10 @@ export const fetchDoctors = createAsyncThunk(
 
 const initialState = {
     doctors: {},
-    user: {}
+    user: {},
+    token: null,
+    loading: false,
+    errors: null
 }
 
 
@@ -59,25 +62,29 @@ const doctorSlice = createSlice({
 
     },
     extraReducers: {
-        [createUser.pending]: () => {
+        [createUser.pending]: (state) => {
             console.log('User Creation Pending');
+            return {...state, loading: true}
         },
         [createUser.fulfilled]: (state, {payload}) => {
             console.log('User Created');
-            return {...state, user: payload}
+            return {...state, user: payload.user, token: payload.accessToken, loading: false}
         },
-        [createUser.rejected]: () => {
+        [createUser.rejected]: (state) => {
                 console.log("User Creation Failed");
+                return {...state, loading: false}
         },
-        [loginUser.pending]: () => {
+        [loginUser.pending]: (state) => {
             console.log('User Login Pending');
+            return {...state, loading: true}
         },
         [loginUser.fulfilled]: (state, {payload}) => {
             console.log('User Logged');
-            return {...state, user: payload}
+            return {...state, user: payload.user, token: payload.accessToken, loading: false}
         },
-        [loginUser.rejected]: () => {
+        [loginUser.rejected]: (state) => {
                 console.log("User Login Failed");
+                return {...state, loading: false, errors: 'Invalid username or password!'}
         },
         [fetchDoctors.pending]: () => {
             console.log('Doctor list pending');
@@ -95,7 +102,9 @@ const doctorSlice = createSlice({
 
 
 
-export default doctorSlice.reducer
-export const getUser = state => state.doctors.user
+export const getUser = (state) => state.doctors.user
 export const getDoctors = (state) => state.doctors.doctors
-export const getState = (state) => state.doctors
+export const getToken = (state) => state.doctors.token
+export const getLoading = (state) => state.doctors.loading
+export const getErrors = (state) => state.doctors.errors
+export default doctorSlice.reducer
