@@ -14,6 +14,7 @@ import { StatusBar } from "expo-status-bar";
 import {  getToken  } from "./src/redux/doctorSlice";
 import Profile from "./src/screens/Profile";
 import CustomDrawer from "./src/components/CustomDrawer";
+import { useFonts } from "expo-font";
 
 
 const Stack = createNativeStackNavigator();
@@ -40,9 +41,9 @@ const LoggedStack = () => {
   return (
       <Drawer.Navigator  drawerContent={props => <CustomDrawer {...props} />} initialRouteName="Home">
         <Drawer.Screen options={{headerShown: false}} name="Home" component={HomeScreen} />
-        <Drawer.Screen name="Profile" component={Profile} />
-        <Drawer.Screen name="AboutUs" component={AboutUs} />
-        <Drawer.Screen name='DoctorProfile' options={{drawerItemStyle:{height: 0} }} component={DoctorProfile} />
+        <Drawer.Screen options={{headerShown: false}}  name="Profile" component={Profile} />
+        <Drawer.Screen  options={{headerShown: false}} name="AboutUs" component={AboutUs} />
+        <Drawer.Screen   name='DoctorProfile' options={{drawerItemStyle:{height: 0}, headerShown: false }} component={DoctorProfile} />
       </Drawer.Navigator>
   );
 };
@@ -62,6 +63,15 @@ const RootNavigation = () => {
 }
 
 const App = () => {
+  const [loaded] = useFonts({
+    montserrat: require('./src/assets/fonts/Montserrat.ttf'),
+    montserratBold: require('./src/assets/fonts/Montserrat-SemiBold.ttf')
+  });
+  
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <Provider store={store}>
       <RootNavigation />
