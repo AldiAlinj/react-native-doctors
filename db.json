@@ -224,6 +224,30 @@
       "pass": "",
       "age": "22",
       "id": 10
+    },
+    {
+      "email": "testim@gmail.com",
+      "password": "$2a$10$hSzWFE8CK2Fq4h/W5dzMQeccXDAES.hZt4A5H9/1dXTSDqFLJ2ING",
+      "pass": "",
+      "age": "21",
+      "id": 11
+    },
+    {
+      "email": "testim2@gmail.com",
+      "password": "$2a$10$67oo4MeP5X1laIK8vGbXQOqD1VfUQ3rOXaSTSyUTxlLlJm1dWLvPy",
+      "pass": "",
+      "age": "23",
+      "id": 12
+    },
+    {
+      "email": "aldi245@gmail.com",
+      "password": "$2a$10$O8cqjM2XBapdrtJvUi8zv.4.QcVk0ZAlHUAzs1C9yA4SKtUw0SjrW",
+      "fullName": "Aldi Alinj",
+      "height": "155",
+      "weight": "124",
+      "bloodType": "a+",
+      "birthDate": "Tue Aug 16 2022 15:01:26 GMT-0700 (PDT)",
+      "id": 13
     }
   ]
 }

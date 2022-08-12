@@ -9,9 +9,11 @@ import Login from "./src/screens/auth/Login";
 import Register from "./src/screens/auth/Register";
 import HomeScreen from "./src/screens/HomeScreen";
 import AboutUs from "./src/screens/AboutUs";
+import DoctorProfile from "./src/screens/DoctorProfile"
 import { StatusBar } from "expo-status-bar";
-import { getLoading, getToken, getUser } from "./src/redux/doctorSlice";
-import { Text } from "react-native";
+import {  getToken  } from "./src/redux/doctorSlice";
+import Profile from "./src/screens/Profile";
+import CustomDrawer from "./src/components/CustomDrawer";
 
 
 const Stack = createNativeStackNavigator();
@@ -36,21 +38,19 @@ const AuthStack = () => {
 
 const LoggedStack = () => {
   return (
-      <Drawer.Navigator initialRouteName="Home">
-        <Drawer.Screen name="Home" component={HomeScreen} />
+      <Drawer.Navigator  drawerContent={props => <CustomDrawer {...props} />} initialRouteName="Home">
+        <Drawer.Screen options={{headerShown: false}} name="Home" component={HomeScreen} />
+        <Drawer.Screen name="Profile" component={Profile} />
         <Drawer.Screen name="AboutUs" component={AboutUs} />
+        <Drawer.Screen name='DoctorProfile' options={{drawerItemStyle:{height: 0} }} component={DoctorProfile} />
       </Drawer.Navigator>
   );
 };
 
 const RootNavigation = () => {
   const token = useSelector(getToken)
-  const loading = useSelector(getLoading)
 
   return (
-    loading ? 
-    <Text>...Loading</Text>
-    :
     <NavigationContainer>
     <StatusBar backgroundColor="black" />
     {

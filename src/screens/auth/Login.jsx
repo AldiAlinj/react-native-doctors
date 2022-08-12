@@ -9,14 +9,19 @@ import {
   Image,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getErrors, loginUser } from "../../redux/doctorSlice";
-
+import { getErrors, loginUser, getLoading } from "../../redux/doctorSlice";
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import InputField from "../../components/InputField";
+import CustomButton from "../../components/CustomButton";
+import { Bars } from "react-native-loader";
 const Login = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const error = useSelector(getErrors)
+  const loading = useSelector(getLoading)
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -25,56 +30,102 @@ const Login = () => {
     dispatch(loginUser(formData));
   };
 
-  const navigateRegistration = () => {
-    navigation.navigate("Register");
-  };
+ 
 
 
   return (
-    <View style={styles.container}>
-      <Image
-        style={styles.image}
+
+    loading ? (
+      <View style={{flex: 1, justifyContent: 'center', alignItems: 'center'}}>
+        <Text style={{fontSize: 20}}>Loading...</Text>
+      </View>
+    )
+    : (
+   
+    <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
+    <View style={{paddingHorizontal: 25}}>
+      <View style={{alignItems: 'center'}}>
+         <Image
+         style={styles.image}
+         
         source={require("../../../assets/favicon.png")}
+       />
+
+      </View>
+
+      <Text
+        style={{
+          fontSize: 28,
+          fontWeight: '500',
+          color: '#333',
+          marginBottom: 30,
+        }}>
+        Login
+      </Text>
+
+      <InputField
+        label={'Email ID'}
+        icon={
+          <MaterialIcons
+          name="alternate-email"
+          size={20}
+          color="#666"
+          style={{marginRight: 5}}
+        />
+        }
+        onChange={(email) => setFormData({...formData, email: email.toLowerCase()})}
+        keyboardType="email-address"
       />
 
-      <StatusBar style="auto" />
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Email."
-          placeholderTextColor="#003f5c"
-          onChangeText={(email) =>
-            setFormData({ ...formData, email: email.toLowerCase() })
-          }
+<InputField
+        label={'Password'}
+        icon={
+          <Ionicons
+          name="ios-lock-closed-outline"
+          size={20}
+          color="#666"
+          style={{marginRight: 5}}
         />
+        }
+        inputType="password"
+        onChange={(password) => setFormData({...formData, password: password})}
+      />
+      
+      <CustomButton label={"Login"} onPress={login} />
+
+      
+      {error !== null ? (
+
+<View
+style={{
+  flexDirection: 'row',
+  justifyContent: 'center',
+  marginBottom: 30,
+}}>
+<Text style={{color: 'red', fontWeight: '700'}}>{error}</Text>
+
+</View>
+      )
+     : (
+      null
+     )}
+
+
+
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'center',
+          marginBottom: 30,
+        }}>
+        <Text>New to the app?</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('Register')}>
+          <Text style={{color: '#AD40AF', fontWeight: '700'}}> Register</Text>
+        </TouchableOpacity>
       </View>
-
-      <View style={styles.inputView}>
-        <TextInput
-          style={styles.TextInput}
-          placeholder="Password."
-          placeholderTextColor="#003f5c"
-          secureTextEntry={true}
-          onChangeText={(password) =>
-            setFormData({ ...formData, password: password })
-          }
-        />
-      </View>
-      {
-        error === null ? null : 
-        <View>
-          <Text>{error}</Text>
-        </View>
-      }
-
-      <TouchableOpacity onPress={navigateRegistration}>
-        <Text style={styles.forgot_button}>Register</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity style={styles.loginBtn} onPress={login}>
-        <Text style={styles.loginText}>LOGIN</Text>
-      </TouchableOpacity>
     </View>
+  </SafeAreaView>
+  )
   );
 };
 

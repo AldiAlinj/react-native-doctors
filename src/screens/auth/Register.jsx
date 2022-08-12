@@ -1,71 +1,232 @@
-import { View, Text, SafeAreaView, StatusBar, StyleSheet, TextInput, TouchableOpacity, Image } from 'react-native'
+import { View, Text, SafeAreaView, StatusBar, StyleSheet, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
-import React, { useEffect, useState } from 'react'
-import { useDispatch } from 'react-redux';
-import { createUser } from '../../redux/doctorSlice';
-import axios from 'axios';
+import React, {  useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { createUser, getErrors, getLoading } from '../../redux/doctorSlice';
+import InputField from '../../components/InputField';
+import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+import CustomButton from '../../components/CustomButton';
+import DateTimePicker from '@react-native-community/datetimepicker'
+
 
 const Register = () => {
 
     const navigation = useNavigation();
     const dispatch = useDispatch();
+    const loading = useSelector(getLoading)
+    const [confirmPassword, setConfirmPassword] = useState('')
+    const [date, setDate] = useState(new Date());
+    const [open, setOpen] = useState(false);
+    const [dobLabel, setDobLabel] = useState('Date of Birth');
+    const sliceError = useSelector(getErrors)
+    const [error, setError] = useState(sliceError)
+
     const [formData, setFormData] = useState({
       email: '',
-      pass: '',
-      age: ''
+      password: '',
+      fullName: '',
+      weight: '',
+      height: '',
+      bloodType: '',
+      birthDate: '',
+
     })
+    
 
     const registerUser = async() => {
+     
         dispatch(createUser(formData))
-    }
-
-
-    
-
-    const navigateLogin = () => {
         navigation.navigate('Login')
     }
+
+
+    const onDateSelected = (e, value) => {
+      setOpen(false)
+      setDate(value.toString())
+      setDobLabel(value.toString())
+      setFormData({...formData, birthDate: value.toString()})
+    }
+
     
     return (
-        <View style={styles.container}>
-          <Image style={styles.image} source={require("../../../assets/favicon.png")} />
-     
-          <StatusBar style="auto" />
-          <View style={styles.inputView}>
-            <TextInput
-              style={styles.TextInput}
-              placeholder="Email."
-              placeholderTextColor="#003f5c"
-              onChangeText={(email) => setFormData({...formData, email: email.toLowerCase()})}
+    
+      <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
+      <ScrollView
+        showsVerticalScrollIndicator={false}
+        style={{paddingHorizontal: 25}}>
+          <View style={{alignItems: 'center'}}>
+         <Image
+         style={styles.image}
+         
+        source={require("../../../assets/favicon.png")}
+       />
+
+      </View>
+        <Text
+          style={{
+            fontSize: 28,
+            fontWeight: '500',
+            color: '#333',
+            marginBottom: 30,
+          }}>
+          Register
+        </Text> 
+        <InputField
+        onChange={(name) => setFormData({...formData, fullName: name})}
+          label={'Full Name'}
+          icon={
+            <Ionicons
+              name="person-outline"
+              size={20}
+              color="#666"
+              style={{marginRight: 5}}
             />
-          </View>
-     
-          <View style={styles.inputView}>
-            <TextInput
-              style={styles.TextInput}
-              placeholder="Password."
-              placeholderTextColor="#003f5c"
-              secureTextEntry={true}
-              onChangeText={(password) => setFormData({...formData, password: password})}
+          }
+        />
+
+        <InputField
+        onChange={(email) => setFormData({...formData, email: email.toLowerCase()})}
+          label={'Email ID'}
+          icon={
+            <MaterialIcons
+              name="alternate-email"
+              size={20}
+              color="#666"
+              style={{marginRight: 5}}
             />
-          </View>
-          <View style={styles.inputView}>
-            <TextInput
-              style={styles.TextInput}
-              placeholder="Age."
-              placeholderTextColor="#003f5c"
-              onChangeText={(age) => setFormData({...formData, age: age})}
+          }
+          keyboardType="email-address"
+        />
+
+        <InputField
+          onChange={(password) => setFormData({...formData, password: password})}
+          label={'Password'}
+          icon={
+            <Ionicons
+              name="ios-lock-closed-outline"
+              size={20}
+              color="#666"
+              style={{marginRight: 5}}
             />
-          </View>
-     
-          <TouchableOpacity onPress={navigateLogin}>
-            <Text style={styles.forgot_button}>Login</Text>
-          </TouchableOpacity>
-     
-          <TouchableOpacity style={styles.loginBtn} onPress={registerUser}>
-            <Text style={styles.loginText}>Register</Text>
+          }
+          inputType="password"
+        />
+
+        <InputField
+        onChange={(confirmPassword) => setConfirmPassword(confirmPassword)}
+          label={'Confirm Password'}
+          icon={
+            <Ionicons
+              name="ios-lock-closed-outline"
+              size={20}
+              color="#666"
+              style={{marginRight: 5}}
+            />
+          }
+          inputType="password"
+        />
+        <InputField
+        onChange={(height) => setFormData({...formData, height: height})}
+          label={'Height (in CM)'}
+          icon={
+            <Ionicons
+              name="md-swap-vertical-outline"
+              size={20}
+              color="#666"
+              style={{marginRight: 5}}
+            />
+          }
+          inputType='numeric'
+/>
+        <InputField
+        onChange={(weight) => setFormData({...formData, weight: weight})}
+          label={'Weight (in KG)'}
+          icon={
+            <Ionicons
+              name="md-timer-outline"
+              size={20}
+              color="#666"
+              style={{marginRight: 5}}
+            />
+          }
+          inputType='numeric'
+/>
+        <InputField
+        onChange={(bloodType) => setFormData({...formData, bloodType: bloodType})}
+          label={'Blood Type'}
+          icon={
+            <Ionicons
+              name="analytics-outline"
+              size={20}
+              color="#666"
+              style={{marginRight: 5}}
+            />
+          }
+/>
+
+        <View
+          style={{
+            flexDirection: 'row',
+            borderBottomColor: '#ccc',
+            borderBottomWidth: 1,
+            paddingBottom: 8,
+            marginBottom: 30,
+          }}>
+          <Ionicons
+            name="calendar-outline"
+            size={20}
+            color="#666"
+            style={{marginRight: 5}}
+          />
+          <TouchableOpacity onPress={() => setOpen(true)}>
+            <Text style={{color: '#666', marginLeft: 5, marginTop: 5}}>
+              {dobLabel}
+            </Text>
           </TouchableOpacity>
         </View>
+        {
+          open &&
+          <DateTimePicker
+          value={date}
+          mode={'date'}
+          display={Platform.OS === 'ios' ? 'spinner' : 'default'}
+          is24Hour={true}
+          onChange={onDateSelected}
+          // style={styleSheet.datePicker}
+        />
+        }
+         {error !== null ? (
+
+<View
+style={{
+  flexDirection: 'row',
+  justifyContent: 'center',
+  marginBottom: 30,
+}}>
+<Text style={{color: 'red', fontWeight: '700'}}>{error}</Text>
+
+</View>
+      )
+     : (
+      null
+     )}
+        
+        <CustomButton label={'Register'} onPress={registerUser} />
+
+        <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'center',
+            marginBottom: 30,
+          }}>
+          <Text>Already registered?</Text>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Text style={{color: '#AD40AF', fontWeight: '700'}}> Login</Text>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
       );
     }
      
