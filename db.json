@@ -168,78 +168,6 @@
   ],
   "users": [
     {
-      "email": "testing@testing.com",
-      "password": "$2a$10$6g77lMwwOpV1DvbW5RYhC.I4.UMnBR39.gmxeJ6n.FevbIHXI/I2e",
-      "age": 32,
-      "id": 1
-    },
-    {
-      "email": "tester@testing.com",
-      "password": "$2a$10$X5j1UC2ZQcKnfMc5EoMk/urYuJn7dhWttKfggnvDUeDSKXtZY4BtW",
-      "id": 2
-    },
-    {
-      "email": "tester3@testing.com",
-      "password": "$2a$10$puqU.O/l3N0hRwaaGLvRPusYgcy5WpbcxsXh6eBDS1Yo9NUU9OaVG",
-      "id": 3
-    },
-    {
-      "email": "tester4@testing.com",
-      "password": "$2a$10$bVfKAKWvZs5Do6BAM5afFO5vVHNlbbKqzedv/u22SRjJPixqgJS6a",
-      "id": 4
-    },
-    {
-      "email": "tester5@testing.com",
-      "password": "$2a$10$weEK80Nt75Ei8GssGksnCOdvu27KWEZwQbjnzUCeC/GM3A6qzz9ge",
-      "id": 5
-    },
-    {
-      "email": "email@test.com",
-      "password": "$2a$10$OcwPMw1qbZqS/Dg6WTkDuugY9XXecJIaNy.0xi4uoRe1Z/vHNFPoy",
-      "age": 32,
-      "id": 6
-    },
-    {
-      "email": "aldi2@gmail.com",
-      "password": "$2a$10$ffmUSFZe1e1p0D1JkM117uPRg8oZvkiu0IoyBrxfdYDA6P0pSzF7S",
-      "id": 7
-    },
-    {
-      "email": "email@gmail.com",
-      "password": "$2a$10$YTMICp4tpOiPhhWc.JKc6ugW3NfP.XZHK8jZWH9ySjYnMz0cCb4Vu",
-      "pass": "",
-      "age": "21",
-      "id": 8
-    },
-    {
-      "email": "email2@gmail.com",
-      "password": "$2a$10$cM96n.AT/v8PfdNVKLzYpesxZptajpf4eyUh6tAaxUP8t4dByb3Fi",
-      "pass": "",
-      "age": "22",
-      "id": 9
-    },
-    {
-      "email": "aldialinj@gmail.com",
-      "password": "$2a$10$QA8OjLU.ns1Fp.O4.Az8b.0Qc/oEWmy9ncsWdJob49yzd8wvaCrcS",
-      "pass": "",
-      "age": "22",
-      "id": 10
-    },
-    {
-      "email": "testim@gmail.com",
-      "password": "$2a$10$hSzWFE8CK2Fq4h/W5dzMQeccXDAES.hZt4A5H9/1dXTSDqFLJ2ING",
-      "pass": "",
-      "age": "21",
-      "id": 11
-    },
-    {
-      "email": "testim2@gmail.com",
-      "password": "$2a$10$67oo4MeP5X1laIK8vGbXQOqD1VfUQ3rOXaSTSyUTxlLlJm1dWLvPy",
-      "pass": "",
-      "age": "23",
-      "id": 12
-    },
-    {
       "email": "aldi245@gmail.com",
       "password": "$2a$10$O8cqjM2XBapdrtJvUi8zv.4.QcVk0ZAlHUAzs1C9yA4SKtUw0SjrW",
       "fullName": "Aldi Alinj",
@@ -248,56 +176,10 @@
       "bloodType": "a+",
       "birthDate": "Tue Aug 16 2022 15:01:26 GMT-0700 (PDT)",
       "id": 13
-    },
-    {
-      "email": "aldi@outlook.com",
-      "password": "$2a$10$khOfI30dkpoFhMQVu/ATnOw2DN5oCA5oU8Z37w5TjRlI/i9K9Nj7i",
-      "fullName": "Aldi Test",
-      "height": "187",
-      "weight": "76",
-      "bloodType": "A",
-      "birthDate": "Wed Aug 10 2022 12:39:42 GMT-0700 (PDT)",
-      "id": 14
-    },
-    {
-      "email": "testingtwo@email.com",
-      "password": "$2a$10$0p5tL8jhwF432si2d.jQpeOkiuREc7m6Hb4QhSXle2bRX3WOkchCy",
-      "fullName": "Testing Two",
-      "height": "187",
-      "weight": "87",
-      "bloodType": "B+",
-      "birthDate": "Wed Aug 10 2022 12:46:22 GMT-0700 (PDT)",
-      "id": 15
-    },
-    {
-      "email": "user@gmail.com",
-      "password": "$2a$10$MSVG7soyJgn53G.K89KQuuWUS5mVXRDQsM.PthQ/Np2TRVvSr0SkW",
-      "fullName": "user two",
-      "height": "123",
-      "weight": "123",
-      "bloodType": "A+",
-      "birthDate": "Tue Aug 16 2022 12:51:12 GMT-0700 (PDT)",
-      "id": 16
     }
+   
   ],
   "appointments": [
-    {
-      "name": "Aldi Alinj",
-      "email": "aldi@gmail.com",
-      "description": "testing",
-      "id": 1
-    },
-    {
-      "name": "Aldi Alinj",
-      "email": "aldi@gmail.com",
-      "description": "",
-      "id": 2
-    },
-    {
-      "name": "aldi Alinj",
-      "email": "aldi@gmail.com",
-      "description": "testing 2",
-      "id": 3
-    }
+   
   ]
 }
