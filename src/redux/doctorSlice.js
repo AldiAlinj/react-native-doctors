@@ -13,7 +13,7 @@ export const createUser = createAsyncThunk(
         headers: {
             'Content-Type' : 'application/json'
            }
-       })
+       }).catch((err) => {console.log(err)})
        
        return response.data
     }
@@ -38,6 +38,7 @@ export const fetchDoctors = createAsyncThunk(
     'doctors/fetchDoctors',
     async() => {
         const response = await axios.get(`https://application-mock-server.loca.lt/doctors`)
+        .catch((err) => {console.log(err)})
         return response.data
     }
 )

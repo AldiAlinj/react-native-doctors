@@ -1,4 +1,4 @@
-import { View, Text, SafeAreaView, StatusBar, StyleSheet, TextInput, TouchableOpacity, Image, ScrollView } from 'react-native'
+import { View, Text, SafeAreaView, StyleSheet, TouchableOpacity, Image, ScrollView } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import React, {  useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';

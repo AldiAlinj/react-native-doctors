@@ -1,11 +1,8 @@
 import {
   View,
   Text,
-  Button,
-  SafeAreaView,
   StatusBar,
   FlatList,
-  Image,
 } from "react-native";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -13,7 +10,6 @@ import {
   fetchDoctors,
   getDoctors,
   getLoading,
-  logoutUser,
 } from "../redux/doctorSlice";
 import DoctorCard from "../components/DoctorCard";
 
@@ -27,14 +23,7 @@ const HomeScreen = () => {
   }, []);
 
 
-  const renderStars = (stars) => {
-    let starsAmount = [];
-    for(let i = 0; i <= stars; i++){
-      starsAmount.push(<Ionicons name="star" color='yellow' height={10} width={10}  />)
-    }
-    return starsAmount
-
-  }
+  
 
   return (
     <View style={{ flex: 1, marginTop: StatusBar.currentHeight }}>
@@ -55,7 +44,6 @@ const HomeScreen = () => {
             )}
           />
          </View>
-          // <Text>Hello</Text>
         )}
       </View>
     </View>

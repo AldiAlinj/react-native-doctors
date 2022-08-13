@@ -18,6 +18,7 @@ const [formData, setFormData] = useState({
   description: ''
 })
 
+//Checks if the fields are filled before dispatching the action
 const setAppointment = () => {
   if(formData.name === '' || formData.email === '' || formData.description === ''){
     setMessage('Please fill all fields!')

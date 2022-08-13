@@ -51,6 +51,8 @@ const LoggedStack = () => {
 const RootNavigation = () => {
   const token = useSelector(getToken)
 
+  // RootNavigation checks for user access token to render Logged Stack if it exists
+
   return (
     <NavigationContainer>
     <StatusBar backgroundColor="black" />
@@ -62,6 +64,7 @@ const RootNavigation = () => {
   )
 }
 
+// Uploaded fonts using Expo Fonts
 const App = () => {
   const [loaded] = useFonts({
     montserrat: require('./src/assets/fonts/Montserrat.ttf'),
@@ -72,6 +75,7 @@ const App = () => {
     return null;
   }
 
+  // Using redux Provider to access the redux store
   return (
     <Provider store={store}>
       <RootNavigation />

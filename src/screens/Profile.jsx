@@ -11,11 +11,11 @@ const user = useSelector(getUser)
 
 const userData = [
   {
-  type: user.height,
+  type: user.height + ' cm',
   label: 'Height'
   },
   {
-  type: user.weight,
+  type: user.weight + ' kg',
   label: 'Weight'
   },
   {

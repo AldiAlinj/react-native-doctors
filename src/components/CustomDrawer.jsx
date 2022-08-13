@@ -63,6 +63,7 @@ const CustomDrawer = (props) => {
               style={{
                 fontSize: 15,
                 marginLeft: 5,
+                fontFamily: 'montserratBold'
               }}
             >
               Sign Out

@@ -1,6 +1,7 @@
 import { View, Text, StatusBar, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import Ionicons from "react-native-vector-icons/Ionicons";
+import CustomButton from "../components/CustomButton";
 
 const DoctorProfile = ({ route, navigation }) => {
   const { doctor } = route.params;
@@ -66,6 +67,9 @@ const DoctorProfile = ({ route, navigation }) => {
         <Text style={{ marginLeft: 10, fontFamily: "montserrat" }}>
           {doctor.description}
         </Text>
+        <View style={{marginTop: 20, paddingHorizontal: 40}}>
+        <CustomButton label='Contact' onPress={() => navigation.navigate('About Us')} />
+        </View>
       </View>
     </View>
   );
