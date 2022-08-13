@@ -4,7 +4,7 @@ This project was bootstrapped with [Expo React Native](https://expo.dev/).
 
 ## Setup
 
-## `npm install --location=global expo-cli`
+### `npm install --location=global expo-cli`
 Installs the Expo Cli to run the project
 
 ### `npm install`
@@ -18,16 +18,16 @@ To run this project correctly you need 3 concurrent terminals
 
 Runs the project accessible from an emulator or by your personal mobile using the Expo app
 
-## `npx json-server --port 8000 ./db.json --watch -m ./node_modules/json-server-auth`
+### `npx json-server --port 8000 ./db.json --watch -m ./node_modules/json-server-auth`
 
 Initializes the json-server created also uses the json-server-auth dependency
 
-## `npx lt --port 8000 --subdomain application-mock-server`
+### `npx lt --port 8000 --subdomain application-mock-server`
 
 Uploads the json-server to an online host so it can be accessed by your device
 
 
-### `Approach`
+## `Approach`
 
 This project is created using the following main tools : 
 json-server,
