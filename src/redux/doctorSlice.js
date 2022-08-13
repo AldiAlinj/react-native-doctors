@@ -72,7 +72,8 @@ const doctorSlice = createSlice({
     initialState,
     reducers: {
         logoutUser: (state) => {
-            state.token = null
+            state.token = null,
+            state.user = {}
         }
     },
     extraReducers: {
