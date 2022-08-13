@@ -8,7 +8,9 @@ export default function InputField({
   keyboardType,
   fieldButtonLabel,
   fieldButtonFunction,
-  onChange
+  onChange,
+  multiline,
+  numberOfLines
 }) {
   return (
     <View
@@ -27,7 +29,7 @@ export default function InputField({
           style={{flex: 1, paddingVertical: 0}}
           secureTextEntry={true}
           onChangeText={onChange}
-          onTex
+        
         />
       ) : (
         <TextInput
@@ -35,6 +37,8 @@ export default function InputField({
           keyboardType={keyboardType}
           style={{flex: 1, paddingVertical: 0}}
           onChangeText={onChange}
+          multiline={multiline}
+          numberOfLines={numberOfLines}
         />
       )}
       <TouchableOpacity onPress={fieldButtonFunction}>

@@ -19,8 +19,7 @@ const Register = () => {
     const [date, setDate] = useState(new Date());
     const [open, setOpen] = useState(false);
     const [dobLabel, setDobLabel] = useState('Date of Birth');
-    const sliceError = useSelector(getErrors)
-    const [error, setError] = useState(sliceError)
+    const error = useSelector(getErrors)
 
     const [formData, setFormData] = useState({
       email: '',
@@ -35,9 +34,21 @@ const Register = () => {
     
 
     const registerUser = async() => {
-     
+      if(
+      formData.email === '' || 
+      formData.password === '' || 
+      formData.fullName === '' || 
+      formData.weight === '' ||
+      formData.height === '' ||
+      formData.bloodType === '' ||
+      formData.birthDate === ''){
+        alert('Please fill out all forms!')
+      }else if(formData.password !==  confirmPassword){
+        alert('Passwords do not match!')
+      }else{
         dispatch(createUser(formData))
-        navigation.navigate('Login')
+      }
+     
     }
 
 
@@ -198,15 +209,15 @@ const Register = () => {
         }
          {error !== null ? (
 
-<View
-style={{
-  flexDirection: 'row',
-  justifyContent: 'center',
-  marginBottom: 30,
-}}>
-<Text style={{color: 'red', fontWeight: '700'}}>{error}</Text>
+          <View
+          style={{
+            flexDirection: 'row',
+            justifyContent: 'center',
+            marginBottom: 30,
+          }}>
+          <Text style={{color: 'red', fontWeight: '700'}}>{error}</Text>
 
-</View>
+          </View>
       )
      : (
       null

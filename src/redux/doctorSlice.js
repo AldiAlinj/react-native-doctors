@@ -7,7 +7,6 @@ export const createUser = createAsyncThunk(
     'doctors/createUser',
 
     async(formData) => {
-        console.log(formData);
        const response = await axios.post(`https://application-mock-server.loca.lt/register`, 
        formData,
        {
@@ -23,9 +22,9 @@ export const createUser = createAsyncThunk(
 
 export const loginUser = createAsyncThunk(
 'doctors/loginUser',
-    async(data) => {
+    async(formData) => {
         const response = await axios.post(`https://application-mock-server.loca.lt/login`,
-        data,
+        formData,
         {headers:{
             'Content-Type' : 'application/json'
 
@@ -39,6 +38,19 @@ export const fetchDoctors = createAsyncThunk(
     'doctors/fetchDoctors',
     async() => {
         const response = await axios.get(`https://application-mock-server.loca.lt/doctors`)
+        return response.data
+    }
+)
+export const postAppointment = createAsyncThunk(
+    'doctors/postAppointment',
+    async(formData) => {
+        const response = await axios.post(`https://application-mock-server.loca.lt/appointments`,
+        formData,
+        {
+            headers: {
+                'Content-Type' : 'application/json'
+            }
+        }).catch((err) => {console.log(err)})
         return response.data
     }
 )
@@ -70,7 +82,7 @@ const doctorSlice = createSlice({
         },
         [createUser.fulfilled]: (state, {payload}) => {
             console.log('User Created');
-            return {...state, user: payload.user, loading: false, errors: null}
+            return {...state, user: payload.user, token: payload.accessToken, loading: false, errors: null}
         },
         [createUser.rejected]: (state) => {
                 console.log("User Creation Failed");
@@ -98,6 +110,15 @@ const doctorSlice = createSlice({
         },
         [fetchDoctors.rejected]: () => {
                 console.log("Doctors fetching failed");
+        },
+        [postAppointment.pending]: () => {
+            console.log('Appointment Pending');
+        },
+        [postAppointment.fulfilled]: () => {
+            console.log('Appointment Posted');
+        },
+        [postAppointment.rejected]: () => {
+                console.log("Appointment Failed");
         },
 
     }

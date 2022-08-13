@@ -248,6 +248,56 @@
       "bloodType": "a+",
       "birthDate": "Tue Aug 16 2022 15:01:26 GMT-0700 (PDT)",
       "id": 13
+    },
+    {
+      "email": "aldi@outlook.com",
+      "password": "$2a$10$khOfI30dkpoFhMQVu/ATnOw2DN5oCA5oU8Z37w5TjRlI/i9K9Nj7i",
+      "fullName": "Aldi Test",
+      "height": "187",
+      "weight": "76",
+      "bloodType": "A",
+      "birthDate": "Wed Aug 10 2022 12:39:42 GMT-0700 (PDT)",
+      "id": 14
+    },
+    {
+      "email": "testingtwo@email.com",
+      "password": "$2a$10$0p5tL8jhwF432si2d.jQpeOkiuREc7m6Hb4QhSXle2bRX3WOkchCy",
+      "fullName": "Testing Two",
+      "height": "187",
+      "weight": "87",
+      "bloodType": "B+",
+      "birthDate": "Wed Aug 10 2022 12:46:22 GMT-0700 (PDT)",
+      "id": 15
+    },
+    {
+      "email": "user@gmail.com",
+      "password": "$2a$10$MSVG7soyJgn53G.K89KQuuWUS5mVXRDQsM.PthQ/Np2TRVvSr0SkW",
+      "fullName": "user two",
+      "height": "123",
+      "weight": "123",
+      "bloodType": "A+",
+      "birthDate": "Tue Aug 16 2022 12:51:12 GMT-0700 (PDT)",
+      "id": 16
+    }
+  ],
+  "appointments": [
+    {
+      "name": "Aldi Alinj",
+      "email": "aldi@gmail.com",
+      "description": "testing",
+      "id": 1
+    },
+    {
+      "name": "Aldi Alinj",
+      "email": "aldi@gmail.com",
+      "description": "",
+      "id": 2
+    },
+    {
+      "name": "aldi Alinj",
+      "email": "aldi@gmail.com",
+      "description": "testing 2",
+      "id": 3
     }
   ]
 }

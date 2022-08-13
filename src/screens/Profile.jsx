@@ -1,17 +1,38 @@
-import { View, Text, StatusBar, Image, TouchableOpacity } from 'react-native'
+import { View, Text, StatusBar, Image, TouchableOpacity, FlatList } from 'react-native'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import {getUser} from '../redux/doctorSlice'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 
-const Profile = () => {
+const Profile = ({navigation}) => {
 
 const user = useSelector(getUser)
+
+const userData = [
+  {
+  type: user.height,
+  label: 'Height'
+  },
+  {
+  type: user.weight,
+  label: 'Weight'
+  },
+  {
+  type: user.bloodType,
+  label: 'Blood Type'
+  },
+  {
+  type: user.birthDate,
+  label: 'Birth Date'
+  }
+]
+
+
   return (
     <View style={{marginTop: StatusBar.currentHeight}}>
       <View style={{marginVertical: 10, flexDirection: 'row', alignItems: 'center',  marginHorizontal: 25, justifyContent: 'space-between'}}>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('Home')}>
         <Ionicons name='close' size={30} />
         </TouchableOpacity>
         <View>
@@ -27,8 +48,14 @@ const user = useSelector(getUser)
         <Text style={{fontFamily: 'montserratBold', fontSize: 20}}>Medical ID</Text>
       </View>
     </View>
-    <View>
-
+    <View style={{marginHorizontal: 10}}>
+      <FlatList data={userData} numColumns={2} renderItem={({item}) => (
+      <View style={{flex: 1, flexDirection: 'column', justifyContent: 'space-evenly', padding: 5, alignItems: 'center', height: 160, width: 100, margin: 10, backgroundColor: 'lightgray', borderRadius: 12}}>
+          <Text style={{textAlign: 'center', fontFamily: 'montserratBold'}}>{item.type}</Text>
+          <Text style={{textAlign: 'center', fontFamily: 'montserrat'}}>{item.label}</Text>
+          
+        </View>
+      )} />
     </View>
     </View>
     

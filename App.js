@@ -39,10 +39,10 @@ const AuthStack = () => {
 
 const LoggedStack = () => {
   return (
-      <Drawer.Navigator  drawerContent={props => <CustomDrawer {...props} />} initialRouteName="Profile">
-        <Drawer.Screen options={{headerShown: false}}  name="Profile" component={Profile} />
+      <Drawer.Navigator  drawerContent={props => <CustomDrawer {...props} />} initialRouteName="Home">
         <Drawer.Screen options={{headerShown: false}} name="Home" component={HomeScreen} />
-        <Drawer.Screen  options={{headerShown: false}} name="AboutUs" component={AboutUs} />
+        <Drawer.Screen options={{headerShown: false}}  name="Profile" component={Profile} />
+        <Drawer.Screen  options={{headerShown: false}} name="About Us" component={AboutUs} />
         <Drawer.Screen   name='DoctorProfile' options={{drawerItemStyle:{height: 0}, headerShown: false }} component={DoctorProfile} />
       </Drawer.Navigator>
   );

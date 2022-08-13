@@ -16,8 +16,8 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import InputField from "../../components/InputField";
 import CustomButton from "../../components/CustomButton";
-import { Bars } from "react-native-loader";
 const Login = () => {
+
   const dispatch = useDispatch();
   const navigation = useNavigation();
   const error = useSelector(getErrors)
@@ -44,15 +44,6 @@ const Login = () => {
    
     <SafeAreaView style={{flex: 1, justifyContent: 'center'}}>
     <View style={{paddingHorizontal: 25}}>
-      <View style={{alignItems: 'center'}}>
-         <Image
-         style={styles.image}
-         
-        source={require("../../../assets/favicon.png")}
-       />
-
-      </View>
-
       <Text
         style={{
           fontSize: 28,

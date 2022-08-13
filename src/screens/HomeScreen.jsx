@@ -43,8 +43,8 @@ const HomeScreen = () => {
       </View>
       <View>
         {loading ? (
-          <View>
-            <Text>Loading...</Text>
+          <View style={{ marginTop: 150, justifyContent: 'center', alignItems: 'center'}}>
+            <Text style={{fontFamily: 'montserratBold', fontSize: 20}}>Loading...</Text>
           </View>
         ) : (
          <View style={{marginBottom: 50}}>
