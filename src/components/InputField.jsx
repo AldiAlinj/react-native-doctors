@@ -1,7 +1,13 @@
-import React from 'react';
-import {View, Text, TouchableOpacity, TextInput} from 'react-native';
+import React from "react";
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  TextInput,
+  StyleSheet,
+} from "react-native";
 
-export default function InputField({
+const InputField = ({
   label,
   icon,
   inputType,
@@ -10,40 +16,44 @@ export default function InputField({
   fieldButtonFunction,
   onChange,
   multiline,
-  numberOfLines
-}) {
-  return (
-    <View
-      style={{
-        flexDirection: 'row',
-        borderBottomColor: '#ccc',
-        borderBottomWidth: 1,
-        paddingBottom: 8,
-        marginBottom: 25,
-      }}>
-      {icon}
-      {inputType == 'password' ? (
-        <TextInput
-          placeholder={label}
-          keyboardType={keyboardType}
-          style={{flex: 1, paddingVertical: 0}}
-          secureTextEntry={true}
-          onChangeText={onChange}
-        
-        />
-      ) : (
-        <TextInput
-          placeholder={label}
-          keyboardType={keyboardType}
-          style={{flex: 1, paddingVertical: 0}}
-          onChangeText={onChange}
-          multiline={multiline}
-          numberOfLines={numberOfLines}
-        />
-      )}
-      <TouchableOpacity onPress={fieldButtonFunction}>
-        <Text style={{color: '#AD40AF', fontWeight: '700'}}>{fieldButtonLabel}</Text>
-      </TouchableOpacity>
-    </View>
-  );
-}
+  numberOfLines,
+}) => (
+  <View style={styles.container}>
+    {icon}
+    {inputType == "password" ? (
+      <TextInput
+        placeholder={label}
+        keyboardType={keyboardType}
+        style={{ flex: 1, paddingVertical: 0 }}
+        secureTextEntry={true}
+        onChangeText={onChange}
+      />
+    ) : (
+      <TextInput
+        placeholder={label}
+        keyboardType={keyboardType}
+        style={styles.input}
+        onChangeText={onChange}
+        multiline={multiline}
+        numberOfLines={numberOfLines}
+      />
+    )}
+    <TouchableOpacity onPress={fieldButtonFunction}>
+      <Text style={styles.label}>{fieldButtonLabel}</Text>
+    </TouchableOpacity>
+  </View>
+);
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    borderBottomColor: "#ccc",
+    borderBottomWidth: 1,
+    paddingBottom: 8,
+    marginBottom: 25,
+  },
+  input: { flex: 1, paddingVertical: 0 },
+  label: { color: "#AD40AF", fontWeight: "700" },
+});
+
+export default InputField;
